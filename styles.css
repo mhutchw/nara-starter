@@ -488,3 +488,42 @@ input[type="checkbox"]:checked+.task-text {
     opacity: 0.95;
     animation: welcomeFadeIn 1s ease-out forwards;
     }
+    .encouragement-bubble {
+        position: absolute;
+        top: 150px; /* Adjust as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff9c4;
+        color: #5c5c00;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        font-size: 16px;
+        z-index: 999;
+        animation: fade-in-out 3s ease-in-out;
+      }
+      
+      @keyframes fade-in-out {
+        0% { opacity: 0; transform: translateY(10px); }
+        10% { opacity: 1; transform: translateY(0); }
+        90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+      }
+      .inspirational-quote {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 14px;
+        font-style: italic;
+        color: #666;
+        opacity: 0.9;
+        text-align: center;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+      }
+      
+
+/* Responsive styles */
