@@ -1,3 +1,12 @@
+const quotes = [
+  "You’re doing better than you think.",
+  "Small steps every day.",
+  "Progress, not perfection.",
+  "Be kind to yourself today.",
+  "You’ve got this!",
+  "Start where you are. Use what you have. Do what you can."
+];
+
 document.addEventListener("DOMContentLoaded", () => {
   const backgroundContainer = document.createElement("div");
   backgroundContainer.className = "background-container";
@@ -10,6 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetModal = document.getElementById("reset-modal");
   const resetYesButton = document.getElementById("reset-yes");
   const resetNoButton = document.getElementById("reset-no");
+
+  // This is the code that i added
+
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  const quoteElement = document.createElement("div");
+  quoteElement.textContent = quote;
+  quoteElement.className = "inspirational-quote";
+
+  document.body.appendChild(quoteElement);
+
+  // This is the original code
 
   // for controlling when hovers are active
   let hoverListeners = [];
@@ -667,8 +688,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const checkbox = taskItem.querySelector("input[type='checkbox']");
       checkbox.addEventListener("change", () => {
+
         const originalIndex = tasks.indexOf(task);
         tasks[originalIndex].completed = checkbox.checked;
+
+        //This is my new code
+        if (checkbox.checked) {
+          const bubble = document.createElement("div");
+          const messages = ["Great job!", "You’re making progress!", "Keep going!", "You rock!"];
+          bubble.textContent = messages[Math.floor(Math.random() * messages.length)];
+          bubble.className = "encouragement-bubble";
+          document.body.appendChild(bubble);
+        
+          setTimeout(() => {
+            bubble.remove();
+          }, 3000);
+        }
+
+        //This is where the original code begins
 
         if (tasks[originalIndex].completed) {
           const deleteButton = taskItem.querySelector(".delete-task");
